@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, include, url
 
 from django.contrib import admin
-admin.autodiscover()
+from DjangoTest.views import *
 
 urlpatterns = patterns('',
     # Examples:
@@ -9,4 +9,6 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^now/$', current_datetime),
+    url(r'^now/plus\d{1,2}hours/$', hours_ahead),
 )
